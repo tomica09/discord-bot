@@ -2,10 +2,11 @@ import discord
 import asyncio
 import datetime
 import pytz
+import os
 
 client =discord.Client()
 
-token = 'ODUxNjY1NTIzODQyNDgyMTc3.YL7lVA.U4Sy5ZrrRQ0QQwR7SfFByJmy37Q'
+
 
 @client.event
 async def on_ready():
@@ -73,5 +74,5 @@ async def on_message(message):
         if i is False:
             await message.channel.send("{}, 당신은 관리자가 아닙니다".format(message.author.mention))
 
-    
-client.run(token)
+access_token = os.environ['BOT_TOKEN']
+client.run(access_token)
